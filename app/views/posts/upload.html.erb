@@ -1,0 +1,59 @@
+<div id='header'>
+  <div id='first_header'>
+    <!--현재 로그인한 사람-->
+    <% if user_signed_in? %>
+      <div id='current_user_bar' style="display:flex; background: #eee; height: 5vh;">
+        <div id='current' style="display:flex; float:right">
+          <div style="float:left; color:gray;margin-left: 0.5em;">
+            <%= current_user.name %>
+          </div>
+          <div style="float:right; color:gray">
+            <a class="nav-link" href="/users/sign_out" style="padding: 0.2rem 1rem !important;">로그아웃</a></div>
+        </div>
+      </div>
+    <% end %>
+
+    <!--로고-->
+    <div id='logo'>
+      <a href="/posts/index"><img src="/assets/urpick_logo.png" style="width:100px;"></a>
+    </div>
+  </div>
+
+  <div class="container" id='nav'>
+    <!--nav-->
+    <ul class="nav nav-pills nav-fill">
+      <li class="nav-item col-3 col-md-3 col-xl-3">
+        <a class="nav-link" href="/posts/goodphoto">좋은프사</a>
+      </li>
+      <li class="nav-item col-3 col-md-3 col-xl-3">
+        <a class="nav-link" href="/posts/selection">내가골라</a>
+      </li>
+      <li class="nav-item col-3 col-md-3 col-xl-3">
+        <a class="nav-link" href="/posts/myprofile">나의기록</a>
+      </li>
+      <li class="nav-item col-3 col-md-3 col-xl-3">
+        <a class="nav-link" href="/posts/upload">Upload</a>
+      </li>
+    </ul>
+  </div>
+</div>
+
+<!--여기부터 콘텐츠-->
+<div id='main'>
+  <div id='upload_div'>
+    <h1 style="color:white;">내 프사 좀 골라줘</h1>
+    <div id='upload_box'>
+      <form action="/posts/create" method="post" enctype="multipart/form-data">
+        <%= hidden_field_tag :authenticity_token, form_authenticity_token %>
+        <p><input class="form-control " type="text" name="post_content" placeholder="내용을 입력해주세요"/></p>
+        <p><input class="btn btn-primary" type="file" name="img1" accept="image/*"/></p>
+        <p><input class="btn btn-primary" type="file" name="img2" accept="image/*"/></p>
+        <p>
+          <button class="btn btn-primary" type="submit">저장</button>
+        </p>
+      </form>
+    </div>
+
+  </div>
+</div>
+

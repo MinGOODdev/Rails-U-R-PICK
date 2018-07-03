@@ -1,0 +1,63 @@
+<div id='header'>
+  <div id='first_header'>
+    <!--현재 로그인한 사람-->
+    <% if user_signed_in? %>
+      <div id='current_user_bar' style="display: flex; background: #eee;
+          height: 5vh;">
+        <div id='current' style="display: flex; float:right">
+          <div style="float: left; color: gray;margin-left: 0.5em;"><%= current_user.name %></div>
+          <div style="float: right; color: gray">
+            <a class="nav-link" href="/users/sign_out" style="padding: 0.2rem 1rem !important;">로그아웃</a></div>
+        </div>
+      </div>
+    <% end %>
+    <!--로고-->
+    <div id='logo'>
+      <a href="/posts/index"><img src="/assets/urpick_logo.png" style="width:100px;"></a>
+    </div>
+  </div>
+  <div class="container" id='nav'>
+    <!--nav-->
+    <ul class="nav nav-pills nav-fill">
+      <li class="nav-item">
+        <a class="nav-link active" href="/posts/goodphoto">좋은프사</a>
+      </li>
+      <li class="nav-item ">
+        <a class="nav-link" href="/posts/selection">내가골라</a>
+      </li>
+      <li class="nav-item ">
+        <a class="nav-link" href="/posts/myprofile">나의기록</a>
+      </li>
+      <li class="nav-item ">
+        <a class="nav-link" href="/posts/upload">Upload</a>
+      </li>
+    </ul>
+  </div>
+</div>
+
+<!--여기부터 콘텐츠-->
+<div class="contents">
+  <div id="home_content">
+
+    <!--각 post, 반복문으로 하나씩 보여준다-->
+    <!--each post 1-->
+    <% @imgs.each do |i| %>
+      <div class="each_content_home">
+        <!--유저 아이디 bar-->
+        <div id='user_info'>
+          <div id='user_name'>
+            <!-- user.name part -->
+            <p><%= i.post.user.name %></p>
+          </div>
+        </div>
+        <!--사진, 하나씩만 나옴-->
+        <div id='pic_one'>
+          <!--<img src='#'> <!--사진 url 넣어주세요!!!!-->
+          <!--<img id='height_img_one' src="/assets/urpick_logo.png"/>-->
+          <img id='height_img_one' src="/uploads/<%= i.img_url %>"/>
+          <h5>왘: <%= i.like_count %></h5>
+        </div>
+      </div>
+    <% end %>
+  </div>
+</div>

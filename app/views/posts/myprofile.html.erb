@@ -1,0 +1,84 @@
+<div id='header'>
+  <div id='first_header'>
+    <!--현재 로그인한 사람-->
+    <% if user_signed_in? %>
+      <div id='current_user_bar' style="display:flex;background: #eee;
+          height: 5vh;">
+        <div id='current' style="display:flex; float:right">
+          <div style="float:left; color:gray;margin-left: 0.5em;"><%= current_user.name %></div>
+          <div style="float:right; color:gray">
+            <a class="nav-link" href="/users/sign_out" style="padding: 0.2rem 1rem !important;">로그아웃</a></div>
+        </div>
+      </div>
+    <% end %>
+    <!--로고-->
+    <div id='logo'>
+      <a href="/posts/index"><img src="/assets/urpick_logo.png" style="width:100px;"></a>
+    </div>
+  </div>
+  <div class="container" id='nav'>
+
+    <!--nav-->
+    <ul class="nav nav-pills nav-fill">
+
+      <li class="nav-item col-3 col-md-3 col-xl-3">
+        <a class="nav-link" href="/posts/goodphoto">좋은프사</a>
+      </li>
+      <li class="nav-item col-3 col-md-3 col-xl-3">
+        <a class="nav-link" href="/posts/selection">내가골라</a>
+      </li>
+      <li class="nav-item col-3 col-md-3 col-xl-3">
+        <a class="nav-link active" href="/posts/myprofile">나의기록</a>
+      </li>
+      <li class="nav-item col-3 col-md-3 col-xl-3">
+        <a class="nav-link" href="/posts/upload">Upload</a>
+      </li>
+
+    </ul>
+
+  </div>
+</div>
+
+<div class="contents">
+  <div id="myprofile_content">
+    <!--나의 베스트샷, 내 전체 이미지 중 like 최고인 것-->
+    <div id="mybest_pic_description">
+      <div id='my_best_pic_one'>
+        <img id='height_img' src='/uploads/<%= @hot %>'> <!--해당 유저의 img 중 가장 like 많은 이미지!!!-->
+      </div>
+      <div id='my_best_pic_description'>
+        <p>내 인생<br/> 최고의<br/> 인.생.샷</p>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="contents">
+  <div id="home_content">
+    <!--each post-->
+    <% @posts.each do |p| %>
+      <% if p.user_id == current_user.id %>
+        <div class="each_content_home">
+          <!--<div id='user_info'>-->
+          <!--  <div id='user_name'>-->
+          <!--    ssee0328-->
+          <!--  </div>-->
+          <!--</div>-->
+          <div id='pic1'>
+            <div id="pic1_1">
+              <img id='height_img' src='/uploads/<%= p.img_url_1 %>'/>
+              [ 왘! : <%= @imgs.find_by(:img_url => p.img_url_1).like_count %> ]
+            </div>
+            <div id="pic1_2">
+              <img id='height_img' src='/uploads/<%= p.img_url_2 %>'/>
+              [ 왘! : <%= @imgs.find_by(:img_url => p.img_url_2).like_count %> ]
+            </div>
+            <a href="/posts/delete/<%= p.id %>">삭제</a>
+
+          </div>
+        </div>
+      <% end %>
+
+    <% end %>
+  </div>
+</div>

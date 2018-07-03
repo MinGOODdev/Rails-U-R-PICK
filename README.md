@@ -11,11 +11,17 @@
 * 메인 페이지는 누구나 볼 수 있습니다.
 * 다른 메뉴를 사용하기 위해서는 회원가입 & 로그인 절차를 거쳐야 합니다.
 
+---
+
 ### 2. Login
 ![login](./docs/img/login.png)
 
+---
+
 ### 3. Upload
 ![upload](./docs/img/create.png)
+
+---
 
 ### 4. Pick (내가골라)
 ![pick1](./docs/img/selection.png)
@@ -24,9 +30,13 @@
 ![pick2](./docs/img/selection1.png)
 * 선택을 누르면 카운트가 증가되고 삭제 버튼이 보여지며, 같이 올려진 사진에는 React를 할 수 없습니다.
 
+---
+
 ### 5. MyProfile (나의기록)
 ![profile](./docs/img/myprofile.png)
 * 내가 올린 사진을 확인할 수 있고, 그것들 중 가장 많은 '왘!'을 얻은 사진을 최상단에서 볼 수 있습니다.
+
+---
 
 ### 6. GoodPhoto (좋은프사)
 ![good](./docs/img/goodphoto.png)

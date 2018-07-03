@@ -134,12 +134,13 @@ li.nav-item {
     display:flex;
     flex-wrap: wrap;
     border-radius:0.5em;
-    background: -webkit-linear-gradient(45deg, rgba(235,204,255,1) 0%, rgba(90,214,214,1) 100%); /* safari5.1+,chrome10+ */
+    background: -webkit-linear-gradient(45deg, rgba(235,204,255,1) 0%, rgba(90,214,214,1) 100%); /* safari5.1+,chrome10+
+*/
+
 #user_info {
     width: 100%;
     height: 10%;
     background: -webkit-linear-gradient(45deg, rgba(235, 204, 255, 1) 0%, rgba(90, 214, 214, 1) 100%); /* safari5.1+,chrome10+ */;
-    display: float;
     border-radius: 0.5em;
 
 }
@@ -257,7 +258,7 @@ li.nav-item {
 #my_best_pic_description p {
     color: white;
     font-size: 1.5em;
-    font: italic;
+    font-style: italic;
 
 }
 
@@ -377,12 +378,12 @@ li.nav-item {
     background-color: #fff;
 }
 
-.btn.btn-primary: {
-    width: 100% !important;
-    color: black;
-    border: 1px solid #ced4da;
-    background-color: deeppink;
-}
+/*.btn.btn-primary {*/
+    /*width: 100% !important;*/
+    /*color: black;*/
+    /*border: 1px solid #ced4da;*/
+    /*background-color: deeppink;*/
+/*}*/
 
 #login {
     width: 100%;

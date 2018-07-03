@@ -4,7 +4,7 @@ class CreateImgs < ActiveRecord::Migration[5.1]
 
       t.integer :post_id
       t.string :img_url
-      t.string :like_count, default: 0
+      t.integer :like_count, default: 0
 
       t.timestamps null: false
     end

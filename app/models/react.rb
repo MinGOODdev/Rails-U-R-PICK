@@ -1,4 +1,4 @@
-class Like < ApplicationRecord
+class React < ApplicationRecord
   belongs_to :user
   belongs_to :post
 end
